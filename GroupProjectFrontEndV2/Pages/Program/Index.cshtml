@@ -1,0 +1,48 @@
+﻿@page
+@model GroupProjectFrontEndV2.Pages.Program.IndexModel
+@{
+}
+
+<div class="container text-center">
+    <h4>All Programs</h4>
+    <br/>
+    <div class="row">
+        <h5 class="col-4 text-end">Id</h5>
+        <h5 class="col-2 text-start">Name</h5>
+        <h5 class="col-6 text-start">options</h5>
+    </div>
+    <br/>
+    <br/>
+    @foreach(var program in Model.Programs)
+    {
+        <div class="row">
+            <h5 class="col-4 text-end">@program.Id</h5>
+            <h5 class="col-2 text-start">@program.Name</h5>
+            <div class="col-6 text-start">
+                <h5>
+                    <a class="btn btn-danger" asp-page="/Program/Delete" asp-route-id="@program.Id">Delete</a> 
+                    <a class="btn btn-warning" asp-page="/Program/Edit" asp-route-id="@program.Id">Edite</a>
+                </h5>
+            </div>
+        </div>
+    }
+    <br/>
+    <br/>
+    <br/>
+    <h4>Add Program</h4>
+    <br/>
+    <form method="post" >
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="NewProgram.Name" class="h5"></label>
+            </div>
+            <div class="col-4">
+                <input asp-for="NewProgram.Name" class="form-control" />
+                <span asp-validation-for="NewProgram.Name"></span>
+            </div>
+            <div class="col-4">
+                <input type="submit" class="btn btn-primary" value="Add" />
+            </div>
+        </div>
+    </form>
+</div>

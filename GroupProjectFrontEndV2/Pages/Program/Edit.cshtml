@@ -1,0 +1,27 @@
+﻿@page "{id:int}"
+@model GroupProjectFrontEndV2.Pages.Program.EditModel
+@{
+}
+
+<div class="container border" style="padding:20px">
+    <form method="post" >
+        <div class="mb-3 row">
+            <div class="col-2 allign-vertically-content-in-div">
+                <label asp-for="Program.Name"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="Program.Name" class="form-control" value="@Model.Program.Name"/>
+                <span asp-validation-for="Program.Name"></span>
+            </div>
+            <div class="col-3 visually-hidden">
+                <input asp-for="Program.Id" class="form-control" readonly value="@Model.Program.Id"/>
+                <span asp-validation-for="Program.Id"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-3">
+                <input type="submit" class="btn btn-primary" value="Update" />
+            </div>
+        </div>
+    </form>
+</div>

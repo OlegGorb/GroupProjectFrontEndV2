@@ -1,0 +1,21 @@
+
+{
+    "region" : "ca-central-1",
+    "configuration" : "Debug",
+    "framework"     : "net6.0",
+    "self-contained" : true,
+    "application"    : "GroupProjectFrontEndV2",
+    "environment"    : "GroupProjectFrontEndV2-dev",
+    "app-path"       : "/",
+    "iis-website"    : "Default Web Site",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-00ca97f4512dff7a4\";\"aws:ec2:vpc,Subnets\"=\"subnet-02f632a055511109f\"",
+    "solution-stack"       : "64bit Windows Server Core 2019 v2.10.2 running IIS 10.0",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "groupprojectfrontendv2-dev",
+    "instance-type"        : "t2.micro",
+    "key-pair"             : "mykeypair",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role"
+}

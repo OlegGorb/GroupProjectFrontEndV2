@@ -1,0 +1,33 @@
+﻿@page "{id:int?}"
+@model GroupProjectFrontEndV2.Pages.Users.SignupModel
+@{
+}
+
+<div class="container text-center">
+    <h4>All Programs</h4>
+    <br/>
+    <div class="row">
+        <h5 class="col-4 text-end">Id</h5>
+        <h5 class="col-2 text-start">Name</h5>
+        <h5 class="col-6 text-start">options</h5>
+    </div>
+    <br/>
+    <br/>
+    @foreach(var program in Model.Programs)
+    {
+        <div class="row">
+            <h5 class="col-4 text-end">@program.Id</h5>
+            <h5 class="col-2 text-start">@program.Name</h5>
+            <div class="col-6 text-start" style="height: 4em">
+                <h5>
+                    @if (Model.User.Program == null || Model.User.Program.Name != program.Name)
+                    {
+                        <a class="btn btn-danger" 
+                            asp-page="/Users/Signup"
+                            asp-route-id="@program.Id">Signup</a>
+                    }
+                </h5>
+            </div>
+        </div>
+    }
+</div>

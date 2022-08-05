@@ -1,0 +1,50 @@
+﻿@page
+@model GroupProjectFrontEndV2.Pages.Account.CreateModel
+@{
+}
+
+<div class="container border" style="padding:20px">
+    <form method="post" >
+        <div class="mb-3 row">
+            <div class="col-2 allign-vertically-content-in-div">
+                <label asp-for="User.FirstName"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="User.FirstName" class="form-control" />
+                <span asp-validation-for="User.FirstName"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-2 allign-vertically-content-in-div">
+                <label asp-for="User.LastName"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="User.LastName" class="form-control" />
+                <span asp-validation-for="User.LastName"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-2 allign-vertically-content-in-div">
+                <label asp-for="User.Email"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-2 allign-vertically-content-in-div">
+                <label asp-for="User.Password"></label>
+            </div>
+            <div class="col-3">
+                <input asp-for="User.Password" class="form-control" />
+                <span asp-validation-for="User.Password"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-3">
+                <input type="submit" class="btn btn-primary" value="Register" />
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@page "{id:int?}"
+@model GroupProjectFrontEndV2.Pages.Users.MyPageModel
+@{
+}
+<div class="container text-center">
+    <h2>Info</h2>
+    <div class="d-grid">
+        <div class="row" style="margin-top: 2em">
+            <h4 class="col-6 text-end">Name: </h4>
+            <h4 class="col-6 text-start">@Model.User.FirstName @Model.User.LastName</h4>
+        </div>
+        <br />
+        <div class="row" style="margin-top: 1em">
+            <h4 class="col-6 text-end">Program: </h4>
+            <h4 class="col-6 text-start">@Model.User.Program.Name</h4>
+        </div>
+        <br />
+        <div class="row" style="margin-top: 1em">
+            <h4 class="col-6 text-end">Email: </h4>
+            <h4 class="col-6 text-start">@Model.User.Email</h4>
+        </div>
+    </div>
+    <br />
+    <a asp-page="/Users/Signup" class="btn btn-info">Signup for a Program</a>
+    <br />
+    <br />
+    <h2 style="margin-bottom: 2em">Sessions</h2>
+    @foreach(var session in Model.User.TimeSpends)
+    {
+        <div class="d-grid">
+            <div class="row" style="margin-top: 0.5em">
+                <h5 class="col-6 text-end">Date: </h5>
+                <h5 class="col-6 text-start">@session.StartDateTime.ToString("dd\\:MM\\:yyyy")</h5>
+            </div>
+            <div class="row" style="margin-top: 0.2em">
+                <h5 class="col-6 text-end">Time: </h5>
+                <h5 class="col-6 text-start">@session.StartDateTime.ToString("hh\\:mm\\:ss")</h5>
+            </div>
+            <div class="row" style="margin-top: 0.2em">
+                <h5 class="col-6 text-end">Length: </h5>
+                <h5 class="col-6 text-start">@session.GetLength()</h5>
+            </div>
+        </div>
+        <br/>
+    }
+    
+
+</div>

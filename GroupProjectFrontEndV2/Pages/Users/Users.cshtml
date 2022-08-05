@@ -1,0 +1,41 @@
+﻿@page
+@model GroupProjectFrontEndV2.Pages.Users.UsersModel
+@{
+}
+
+<div class="container p-5">
+    <div class="ro pt-4">
+        <div class="col">
+            <h2 class="text-dark">Users Records</h2>
+        </div>
+    </div>
+    <br/>
+    <table class="table table-bordered text-dark " style="width: 100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Program</th>
+                <th>Email</th>
+                <th>Time Record for Month</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>
+                        <a asp-page="/Users/MyPage" asp-route-id="@user.Id">@user.FirstName</a>
+                    </td>
+                    <td>@user.LastName</td>
+                    <td>@user.Program</td>
+                    <td>@user.Email</td>
+                    <td>@user.GetTotalTime()</td>
+                </tr>
+            }
+        </tbody>
+       
+    </table>
+</div>
