@@ -30,7 +30,7 @@
                         <a asp-page="/Users/MyPage" asp-route-id="@user.Id">@user.FirstName</a>
                     </td>
                     <td>@user.LastName</td>
-                    <td>@user.Program.Name</td>
+                    <td>@if(user.Program != null) { @user.Program.Name }</td>
                     <td>@user.Email</td>
                     <td>@user.GetTotalTime()</td>
                 </tr>
