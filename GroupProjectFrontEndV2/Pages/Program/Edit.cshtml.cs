@@ -52,6 +52,8 @@ namespace GroupProjectFrontEndV2.Pages.Program
 
             if (ModelState.IsValid)
             {
+                string token = HttpContext.Request.Cookies[Constants.XAccessToken];
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var result = await httpClient.PutAsJsonAsync<StudentProgram>("/api/Program/EditProgram", Program);
 
                 if (result.StatusCode == HttpStatusCode.OK)
