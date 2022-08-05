@@ -7,7 +7,6 @@ builder.Services.AddRazorPages();
 builder.Services.AddHttpClient("BackendApi", client =>
 {
     client.BaseAddress = new Uri("http://groupprojectbackendv2-dev.ca-central-1.elasticbeanstalk.com/");
-    //client.BaseAddress = new Uri("http://groupprojectbackend-dev.ca-central-1.elasticbeanstalk.com/");
     //client.BaseAddress = new Uri("https://localhost:7051/");
 });
 

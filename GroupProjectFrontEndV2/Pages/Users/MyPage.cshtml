@@ -12,7 +12,7 @@
         <br />
         <div class="row" style="margin-top: 1em">
             <h4 class="col-6 text-end">Program: </h4>
-            <h4 class="col-6 text-start">@Model.User.Program.Name</h4>
+            <h4 class="col-6 text-start">@if (Model.User.Program != null) { @Model.User.Program.Name }</h4>
         </div>
         <br />
         <div class="row" style="margin-top: 1em">
