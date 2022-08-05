@@ -17,12 +17,17 @@ namespace GroupProjectFrontEndV2.Pages.Account
         public async Task<IActionResult> OnGet()
         {
             string token = HttpContext.Request.Cookies[Constants.XAccessToken];
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            if (token != null)
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
 
             string session = HttpContext.Request.Cookies[Constants.Session];
-            var result = await httpClient.PostAsJsonAsync<int>("/api/Users/Logout", Int32.Parse(session));
-
-            Console.WriteLine(result.IsSuccessStatusCode);
+            if (session != null)
+            {
+                var result = await httpClient.PostAsJsonAsync<int>("/api/Users/Logout", Int32.Parse(session));
+                Console.WriteLine(result.IsSuccessStatusCode);
+            }
 
             HttpContext.SignOutAsync("MyCookieAuth");
             return RedirectToPage("/Index");
