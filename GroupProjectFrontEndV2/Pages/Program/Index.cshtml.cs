@@ -37,6 +37,8 @@ namespace GroupProjectFrontEndV2.Pages.Program
 
             if (NewProgram.Name != null && NewProgram.Name != "")
             {
+                string token = HttpContext.Request.Cookies[Constants.XAccessToken];
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 var result = await httpClient.PostAsJsonAsync<StudentProgram>("/api/Program/AddProgram", NewProgram);
 
                 if (result.StatusCode == HttpStatusCode.OK)
