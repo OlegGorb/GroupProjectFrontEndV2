@@ -20,8 +20,12 @@
             <h4 class="col-6 text-start">@Model.User.Email</h4>
         </div>
     </div>
-    <br />
-    <a asp-page="/Users/Signup" class="btn btn-info">Signup for a Program</a>
+    @if(Model.HttpContext.User.Identity.Name != "admin ")
+    {
+            <br />
+            <a asp-page="/Users/Signup" class="btn btn-info">Signup for a Program</a>
+    }
+
     <br />
     <br />
     <h2 style="margin-bottom: 2em">Sessions</h2>

@@ -11,6 +11,9 @@ namespace GroupProjectFrontEndV2.Pages.Users
         [BindProperty]
         public User User { get; set; }
 
+        [BindProperty]
+        public int Id { get; set; }
+
         HttpClient httpClient;
 
         public MyPageModel(IHttpClientFactory httpClientFactory)
@@ -20,8 +23,13 @@ namespace GroupProjectFrontEndV2.Pages.Users
 
         public async Task OnGetAsync(int id)
         {
-            string token = HttpContext.Request.Cookies[Constants.XAccessToken];
+            if (id != null && id != 0)
+            {
+                Id = id;
+            }
 
+
+            string token = HttpContext.Request.Cookies[Constants.XAccessToken];
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             if (id != null && id != 0)
